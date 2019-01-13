@@ -22,11 +22,13 @@ export default class Repo extends React.Component{
             <InfoLoader component={repo}>
                 <h1>Repositories</h1>
                 {
-                    repo.repositories && 
-                    <div>
-                        <Repos repos={repo.repositories} page={this.state.page*5}/>
-                        <span>Page:</span><Options onChange={this.onSelectChange} repo={repo.repositories}/>
-                    </div>
+                    repo.repositories && repo.repositories.length?
+                        <div>
+                            <Repos repos={repo.repositories} page={this.state.page*5}/>
+                            <span>Page:</span><Options onChange={this.onSelectChange} repo={repo.repositories}/>
+                        </div>
+                    :
+                        <p>Nothing to display</p>
                 }
             </InfoLoader>
         );
