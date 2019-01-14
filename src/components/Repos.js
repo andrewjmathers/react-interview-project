@@ -34,6 +34,7 @@ const List = styled.ul`
 `;
 
 const Repos = ({repos, page}) =>{
+    console.log(repos, page);
     const repositories = repos.length && repos
         .slice(page-5, page)
         .map((item, i)=>
