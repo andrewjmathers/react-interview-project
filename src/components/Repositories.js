@@ -9,18 +9,15 @@ export default class Repo extends React.Component{
     constructor(props){
         super(props);
         this.state = {page: 1};
-        this.selected = 0;
+    }
+
+    componentDidUpdate(prevProps) {
+        prevProps.repo != this.props.repo && this.setState({page: 1});
     }
 
     onSelectChange = (e) =>{
-        this.selected = parseInt(e.target.selectedOptions[0].innerHTML);
-        this.setState({page: this.selected});
-    }
-
-    static getDerivedStateFromProps(){
-        return{
-            page: 1
-        }
+        let chosen =  parseInt(e.target.selectedOptions[0].innerHTML);
+        this.setState({page: chosen});
     }
 
     render(){

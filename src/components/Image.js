@@ -8,7 +8,6 @@ export default class Image extends React.Component{
 
     handleImageLoaded = (e) => {
         this.setState({loaded: true});
-        e.target.classList.remove("preLoad");
     };
 
     render(){
@@ -16,7 +15,7 @@ export default class Image extends React.Component{
         return(
             <div className={className}>
                 <div style={{height: "20%", width: "20%"}} className={this.state.loaded? "" : "loading"}></div>
-                <img className="preLoad" onLoad={this.handleImageLoaded}  src={source} alt="user avatar"/>
+                <img className={!this.state.loaded? "preLoad" : ""} onLoad={this.handleImageLoaded}  src={source} alt="user avatar"/>
             </div>
         )
     }
