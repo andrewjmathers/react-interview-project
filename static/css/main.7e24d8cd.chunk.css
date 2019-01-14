@@ -9,7 +9,7 @@ li::-webkit-scrollbar {
 li::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
-*{
+li{
 -ms-overflow-style: none;
-overflow: -moz-scrollbars-none;
+overflow: -moz-scrollbars-none !important;
 }
